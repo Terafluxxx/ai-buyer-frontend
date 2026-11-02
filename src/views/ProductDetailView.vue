@@ -5,6 +5,7 @@ import { deleteProduct, getProduct, updateProduct } from '../api/products'
 import { errorMessage } from '../utils/errors'
 import { formatDateTime } from '../utils/format'
 import ProductForm from '../components/ProductForm.vue'
+import ProductInventory from '../components/ProductInventory.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -101,6 +102,8 @@ onMounted(load)
         <dd>{{ formatDateTime(product.updatedAt) }}</dd>
       </dl>
     </section>
+
+    <ProductInventory :product-id="productId" />
   </template>
 </template>
 
