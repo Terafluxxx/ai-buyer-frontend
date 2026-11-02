@@ -229,6 +229,22 @@ th.num {
   margin-top: 4px;
 }
 
+/* Список «название — значение» (карточки профиля, товара) */
+.details {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px;
+  margin: 0;
+}
+
+.details dt {
+  color: var(--muted);
+}
+
+.details dd {
+  margin: 0;
+}
+
 /* Сообщения */
 .alert {
   padding: 10px 12px;

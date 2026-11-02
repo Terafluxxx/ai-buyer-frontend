@@ -88,7 +88,7 @@ onMounted(load)
         @submit="onSave"
         @cancel="editing = false"
       />
-      <dl v-else>
+      <dl v-else class="details">
         <dt>SKU</dt>
         <dd>{{ product.sku }}</dd>
         <dt>Название</dt>
@@ -108,20 +108,5 @@ onMounted(load)
 .back {
   display: inline-block;
   margin-bottom: 12px;
-}
-
-dl {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 8px;
-  margin: 0;
-}
-
-dt {
-  color: var(--muted);
-}
-
-dd {
-  margin: 0;
 }
 </style>

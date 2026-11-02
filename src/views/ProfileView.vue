@@ -32,7 +32,7 @@ onMounted(async () => {
   <div v-if="profile" class="grid">
     <section class="card">
       <h2>Пользователь</h2>
-      <dl>
+      <dl class="details">
         <dt>Имя</dt>
         <dd>{{ profile.user.name }}</dd>
         <dt>Email</dt>
@@ -44,7 +44,7 @@ onMounted(async () => {
 
     <section class="card">
       <h2>Организация</h2>
-      <dl>
+      <dl class="details">
         <dt>Название</dt>
         <dd>{{ profile.company.name }}</dd>
         <dt>ID</dt>
@@ -61,20 +61,5 @@ onMounted(async () => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
-}
-
-dl {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 8px;
-  margin: 0;
-}
-
-dt {
-  color: var(--muted);
-}
-
-dd {
-  margin: 0;
 }
 </style>
