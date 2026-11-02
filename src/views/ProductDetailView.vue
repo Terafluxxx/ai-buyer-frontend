@@ -6,6 +6,7 @@ import { errorMessage } from '../utils/errors'
 import { formatDateTime } from '../utils/format'
 import ProductForm from '../components/ProductForm.vue'
 import ProductInventory from '../components/ProductInventory.vue'
+import ProductSales from '../components/ProductSales.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -104,6 +105,7 @@ onMounted(load)
     </section>
 
     <ProductInventory :product-id="productId" />
+    <ProductSales :product-id="productId" />
   </template>
 </template>
 
