@@ -9,6 +9,7 @@ const router = useRouter()
 const links = [
   { to: '/products', label: 'Товары' },
   { to: '/inventory', label: 'Остатки' },
+  { to: '/sales', label: 'Продажи' },
   { to: '/profile', label: 'Профиль' },
 ]
 

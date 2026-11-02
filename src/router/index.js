@@ -6,6 +6,7 @@ import ProfileView from '../views/ProfileView.vue'
 import ProductsView from '../views/ProductsView.vue'
 import ProductDetailView from '../views/ProductDetailView.vue'
 import InventoryView from '../views/InventoryView.vue'
+import SalesView from '../views/SalesView.vue'
 
 // meta.public = true — страница доступна без входа
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
   { path: '/products', component: ProductsView },
   { path: '/products/:id', component: ProductDetailView },
   { path: '/inventory', component: InventoryView },
+  { path: '/sales', component: SalesView },
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
 
