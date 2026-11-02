@@ -7,10 +7,14 @@ import ProductsView from '../views/ProductsView.vue'
 import ProductDetailView from '../views/ProductDetailView.vue'
 import InventoryView from '../views/InventoryView.vue'
 import SalesView from '../views/SalesView.vue'
+import DashboardView from '../views/DashboardView.vue'
+import RecommendationsView from '../views/RecommendationsView.vue'
 
 // meta.public = true — страница доступна без входа
 const routes = [
-  { path: '/', redirect: '/profile' },
+  { path: '/', redirect: '/dashboard' },
+  { path: '/dashboard', component: DashboardView },
+  { path: '/recommendations', component: RecommendationsView },
   { path: '/login', component: LoginView, meta: { public: true } },
   { path: '/register', component: RegisterView, meta: { public: true } },
   { path: '/profile', component: ProfileView },

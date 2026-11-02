@@ -7,6 +7,8 @@ const router = useRouter()
 
 // Пункты единого навигационного меню
 const links = [
+  { to: '/dashboard', label: 'Дашборд' },
+  { to: '/recommendations', label: 'Рекомендации' },
   { to: '/products', label: 'Товары' },
   { to: '/inventory', label: 'Остатки' },
   { to: '/sales', label: 'Продажи' },
