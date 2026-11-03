@@ -12,6 +12,5 @@
 | [05-pages.md](05-pages.md) | Все страницы: что умеют и какие запросы к API отправляют |
 | [06-recommendations.md](06-recommendations.md) | Формула рекомендаций по закупке с разбором на примере |
 | [07-development-log.md](07-development-log.md) | Как шла разработка: этапы, коммиты, принятые решения и почему |
-| [08-defense-questions.md](08-defense-questions.md) | Вероятные вопросы преподавателя и ответы на них |
 
 Инструкция по запуску — в [README проекта](../README.md).
