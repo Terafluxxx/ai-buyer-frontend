@@ -100,7 +100,7 @@ npm install
 npm run dev
 ```
 
-После запуска npm run dev откройте приложение в браузере по адресу **http://localhost:5173**.
+Запустите frontend командой `npm run dev` и откройте http://127.0.0.1:5173. Backend API доступен на http://localhost:8080/api/v1.
 
 Dev-сервер Vite перенаправляет все запросы `/api/...` на backend (настройка `proxy` в
 [vite.config.js](vite.config.js)). Если backend запущен на другом адресе, укажите его в переменной `API_URL`:
