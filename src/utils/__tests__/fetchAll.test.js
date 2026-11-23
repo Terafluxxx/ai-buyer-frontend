@@ -20,6 +20,31 @@ describe('fetchAll', () => {
     })
   })
 
+  it('ограничивает количество одновременных запросов пятью', async () => {
+    let activeRequests = 0
+    let maxActiveRequests = 0
+
+    const fetchPage = vi.fn(async ({ page }) => {
+      activeRequests++
+      maxActiveRequests = Math.max(maxActiveRequests, activeRequests)
+
+      await new Promise((resolve) => setTimeout(resolve, (11 - page) * 2))
+
+      activeRequests--
+
+      return {
+        items: [page],
+        totalPages: 11,
+      }
+    })
+
+    const result = await fetchAll(fetchPage)
+
+    expect(maxActiveRequests).toBe(5)
+    expect(fetchPage).toHaveBeenCalledTimes(11)
+    expect(result).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  })
+
   it('загружает все страницы и объединяет результаты', async () => {
     const pages = [
       {
