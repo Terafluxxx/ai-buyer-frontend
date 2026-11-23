@@ -30,7 +30,13 @@ async function load(page = 0) {
   loading.value = true
   error.value = ''
   try {
-    result.value = await getProducts({ ...filters, q: filters.q.trim(), category: filters.category.trim(), page, size: 20 })
+    result.value = await getProducts({
+      ...filters,
+      q: filters.q.trim(),
+      category: filters.category.trim(),
+      page,
+      size: 20,
+    })
   } catch (e) {
     error.value = errorMessage(e)
   } finally {
@@ -68,13 +74,20 @@ onMounted(load)
       <h1>Товары</h1>
       <p class="muted">Каталог товаров организации</p>
     </div>
-    <button v-if="!showForm" class="btn btn-primary" @click="showForm = true">+ Добавить товар</button>
+    <button v-if="!showForm" class="btn btn-primary" @click="showForm = true">
+      + Добавить товар
+    </button>
   </div>
 
   <section v-if="showForm" class="card">
     <h2>Новый товар</h2>
     <p v-if="formError" class="alert alert-error">{{ formError }}</p>
-    <ProductForm submit-label="Создать" :loading="saving" @submit="onCreate" @cancel="showForm = false" />
+    <ProductForm
+      submit-label="Создать"
+      :loading="saving"
+      @submit="onCreate"
+      @cancel="showForm = false"
+    />
   </section>
 
   <section class="card">
@@ -112,7 +125,12 @@ onMounted(load)
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in result.items" :key="product.id" class="clickable" @click="router.push(`/products/${product.id}`)">
+          <tr
+            v-for="product in result.items"
+            :key="product.id"
+            class="clickable"
+            @click="router.push(`/products/${product.id}`)"
+          >
             <td>{{ product.sku }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.category || '—' }}</td>

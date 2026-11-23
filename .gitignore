@@ -16,6 +16,9 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Файлы Claude
-.claude/
-CLAUDE.md
+# Личные настройки редактора игнорируются
+/.vscode/*
+
+# Общие настройки проекта сохраняются в Git
+!/.vscode/settings.json
+!/.vscode/extensions.json

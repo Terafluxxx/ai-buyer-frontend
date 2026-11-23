@@ -50,7 +50,14 @@ async function onSubmit() {
 
       <div class="field">
         <label for="email">Email</label>
-        <input id="email" v-model="form.email" type="email" required maxlength="255" autocomplete="email" />
+        <input
+          id="email"
+          v-model="form.email"
+          type="email"
+          required
+          maxlength="255"
+          autocomplete="email"
+        />
       </div>
 
       <div class="field">
@@ -71,9 +78,7 @@ async function onSubmit() {
       </button>
     </form>
 
-    <p class="muted switch">
-      Уже есть аккаунт? <RouterLink to="/login">Войти</RouterLink>
-    </p>
+    <p class="muted switch">Уже есть аккаунт? <RouterLink to="/login">Войти</RouterLink></p>
   </AuthCard>
 </template>
 

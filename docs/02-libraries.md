@@ -2,12 +2,12 @@
 
 В проекте всего три библиотеки для работы приложения и один инструмент сборки:
 
-| Библиотека | Для чего | Где в проекте |
-| --- | --- | --- |
-| **Vue 3** | Строит интерфейс из компонентов | все файлы `.vue` |
-| **Vue Router** | Переключает страницы без перезагрузки | `src/router/index.js` |
-| **Axios** | Отправляет HTTP-запросы к backend | `src/api/` |
-| **Vite** | Запускает dev-сервер и собирает проект | `vite.config.js` |
+| Библиотека     | Для чего                               | Где в проекте         |
+| -------------- | -------------------------------------- | --------------------- |
+| **Vue 3**      | Строит интерфейс из компонентов        | все файлы `.vue`      |
+| **Vue Router** | Переключает страницы без перезагрузки  | `src/router/index.js` |
+| **Axios**      | Отправляет HTTP-запросы к backend      | `src/api/`            |
+| **Vite**       | Запускает dev-сервер и собирает проект | `vite.config.js`      |
 
 Список зависимостей лежит в `package.json`. Команда `npm install` скачивает их в папку `node_modules`.
 
@@ -46,13 +46,13 @@ Vue — фреймворк для создания интерфейсов. Гл�
 ```js
 import { ref, reactive, computed } from 'vue'
 
-const loading = ref(false)            // одно значение
-loading.value = true                  // в скрипте — через .value
+const loading = ref(false) // одно значение
+loading.value = true // в скрипте — через .value
 
-const form = reactive({ email: '', password: '' })  // объект
-form.email = 'a@b.ru'                 // без .value
+const form = reactive({ email: '', password: '' }) // объект
+form.email = 'a@b.ru' // без .value
 
-const count = computed(() => rows.value.length)     // вычисляемое значение
+const count = computed(() => rows.value.length) // вычисляемое значение
 ```
 
 - `ref` — для отдельных значений (строка, число, массив, объект целиком). В шаблоне `.value` писать не нужно.
@@ -65,16 +65,16 @@ const count = computed(() => rows.value.length)     // вычисляемое з
 
 ### Директивы шаблона
 
-| Директива | Что делает | Пример из проекта |
-| --- | --- | --- |
-| `{{ }}` | Выводит значение | `{{ product.name }}` |
-| `v-if` / `v-else` | Показывает элемент по условию | `<p v-if="error">` — ошибка видна, только если она есть |
-| `v-for` | Повторяет элемент для каждого элемента массива | строки таблиц товаров |
-| `v-model` | Связывает поле ввода с переменной в обе стороны | `<input v-model="email">` |
-| `v-model.number` | То же, но превращает ввод в число | поле количества |
-| `:атрибут` | Подставляет значение в атрибут (сокращение `v-bind`) | `:disabled="loading"` |
-| `@событие` | Подписка на событие (сокращение `v-on`) | `@click="onLogout"` |
-| `@submit.prevent` | Обработать отправку формы без перезагрузки страницы | все формы |
+| Директива         | Что делает                                           | Пример из проекта                                       |
+| ----------------- | ---------------------------------------------------- | ------------------------------------------------------- |
+| `{{ }}`           | Выводит значение                                     | `{{ product.name }}`                                    |
+| `v-if` / `v-else` | Показывает элемент по условию                        | `<p v-if="error">` — ошибка видна, только если она есть |
+| `v-for`           | Повторяет элемент для каждого элемента массива       | строки таблиц товаров                                   |
+| `v-model`         | Связывает поле ввода с переменной в обе стороны      | `<input v-model="email">`                               |
+| `v-model.number`  | То же, но превращает ввод в число                    | поле количества                                         |
+| `:атрибут`        | Подставляет значение в атрибут (сокращение `v-bind`) | `:disabled="loading"`                                   |
+| `@событие`        | Подписка на событие (сокращение `v-on`)              | `@click="onLogout"`                                     |
+| `@submit.prevent` | Обработать отправку формы без перезагрузки страницы  | все формы                                               |
 
 ### Props и emit — как компоненты общаются
 
@@ -92,7 +92,7 @@ const count = computed(() => rows.value.length)     // вычисляемое з
 // Ребёнок (AppPagination) объявляет props и события
 const props = defineProps({ page: Number, totalPages: Number })
 const emit = defineEmits(['change'])
-emit('change', 2)  // родитель вызовет load(2)
+emit('change', 2) // родитель вызовет load(2)
 ```
 
 Так один компонент пагинации используется на трёх разных страницах.
@@ -137,10 +137,10 @@ Composable — обычная функция, которая используе�
 
 ```js
 const routes = [
-  { path: '/', redirect: '/dashboard' },                         // перенаправление
+  { path: '/', redirect: '/dashboard' }, // перенаправление
   { path: '/login', component: LoginView, meta: { public: true } },
-  { path: '/products/:id', component: ProductDetailView },       // :id — параметр
-  { path: '/:pathMatch(.*)*', redirect: '/' },                   // все неизвестные адреса
+  { path: '/products/:id', component: ProductDetailView }, // :id — параметр
+  { path: '/:pathMatch(.*)*', redirect: '/' }, // все неизвестные адреса
 ]
 ```
 
@@ -214,7 +214,7 @@ const { data } = await http.post('/products', { sku: 'A-1', name: 'Товар' }
 try {
   await createProduct(product)
 } catch (e) {
-  error.value = errorMessage(e)   // показать понятный текст
+  error.value = errorMessage(e) // показать понятный текст
 }
 ```
 
@@ -258,9 +258,9 @@ proxy: {
 
 Описаны в `package.json`, запускаются как `npm run <имя>`:
 
-| Команда | Что делает |
-| --- | --- |
-| `npm run dev` | dev-сервер |
-| `npm run build` | сборка для production в `dist/` |
+| Команда           | Что делает                           |
+| ----------------- | ------------------------------------ |
+| `npm run dev`     | dev-сервер                           |
+| `npm run build`   | сборка для production в `dist/`      |
 | `npm run preview` | посмотреть собранную версию локально |
-| `npm run seed` | заполнить backend демо-данными |
+| `npm run seed`    | заполнить backend демо-данными       |

@@ -16,7 +16,13 @@ export const STATUSES = {
 // sales30 — сколько продано за последние 30 завершённых дней
 // stock — текущий остаток
 // incoming — уже заказано, но ещё не пришло (закупок пока нет, поэтому 0)
-export function calculateRecommendation({ sales30, stock, leadDays = DEFAULT_LEAD_DAYS, minimumOrder = 1, incoming = 0 }) {
+export function calculateRecommendation({
+  sales30,
+  stock,
+  leadDays = DEFAULT_LEAD_DAYS,
+  minimumOrder = 1,
+  incoming = 0,
+}) {
   const averageDailySales = sales30 / 30
   // Точка заказа: запас на время поставки + 7 дней страховки
   const reorderPoint = averageDailySales * (leadDays + 7)

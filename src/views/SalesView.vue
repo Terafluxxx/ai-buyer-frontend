@@ -55,7 +55,9 @@ onMounted(async () => {
       <h1>Продажи</h1>
       <p class="muted">Продажи товаров по дням за выбранный период</p>
     </div>
-    <button v-if="!showForm" class="btn btn-primary" @click="showForm = true">+ Записать продажи</button>
+    <button v-if="!showForm" class="btn btn-primary" @click="showForm = true">
+      + Записать продажи
+    </button>
   </div>
 
   <section v-if="showForm" class="card">
@@ -103,7 +105,9 @@ onMounted(async () => {
     </div>
     <div class="stat">
       <div class="stat-label">Период</div>
-      <div class="period">{{ formatDate(summary.dateFrom) }} — {{ formatDate(summary.dateTo) }}</div>
+      <div class="period">
+        {{ formatDate(summary.dateFrom) }} — {{ formatDate(summary.dateTo) }}
+      </div>
     </div>
   </div>
 

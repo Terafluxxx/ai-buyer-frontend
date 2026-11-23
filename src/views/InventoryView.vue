@@ -93,12 +93,22 @@ onMounted(async () => {
               </RouterLink>
             </td>
             <td class="muted">{{ products[row.productId]?.sku }}</td>
-            <td class="num"><strong>{{ row.quantity }}</strong></td>
+            <td class="num">
+              <strong>{{ row.quantity }}</strong>
+            </td>
             <td class="muted">{{ formatDateTime(row.updatedAt) }}</td>
             <td>
               <form class="inline-form" @submit.prevent="onSave(row)">
-                <input v-model.number="edits[row.productId]" type="number" min="0" step="1" required />
-                <button class="btn btn-small" :disabled="edits[row.productId] === row.quantity">Сохранить</button>
+                <input
+                  v-model.number="edits[row.productId]"
+                  type="number"
+                  min="0"
+                  step="1"
+                  required
+                />
+                <button class="btn btn-small" :disabled="edits[row.productId] === row.quantity">
+                  Сохранить
+                </button>
               </form>
             </td>
           </tr>

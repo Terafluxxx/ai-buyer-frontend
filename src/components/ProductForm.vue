@@ -20,7 +20,7 @@ watch(
     form.name = value.name || ''
     form.category = value.category || ''
   },
-  { immediate: true },
+  { immediate: true }
 )
 
 function onSubmit() {

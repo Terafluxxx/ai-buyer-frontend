@@ -40,7 +40,13 @@ async function onSubmit() {
 
       <div class="field">
         <label for="password">Пароль</label>
-        <input id="password" v-model="password" type="password" required autocomplete="current-password" />
+        <input
+          id="password"
+          v-model="password"
+          type="password"
+          required
+          autocomplete="current-password"
+        />
       </div>
 
       <button class="btn btn-primary full" :disabled="loading">

@@ -62,7 +62,14 @@ async function onSubmit() {
       </div>
       <div class="field">
         <label for="sale-quantity">Продано, шт.</label>
-        <input id="sale-quantity" v-model.number="quantity" type="number" min="0" step="1" required />
+        <input
+          id="sale-quantity"
+          v-model.number="quantity"
+          type="number"
+          min="0"
+          step="1"
+          required
+        />
       </div>
       <button class="btn btn-primary" :disabled="saving">Сохранить</button>
     </form>
