@@ -76,7 +76,9 @@ onMounted(load)
             <td><StatusBadge :status="row.status" /></td>
             <td class="num">{{ row.stock }}</td>
             <td class="num">{{ formatNumber(row.stockDays) }}</td>
-            <td class="num"><strong>{{ row.recommendedQuantity }}</strong></td>
+            <td class="num">
+              <strong>{{ row.recommendedQuantity }}</strong>
+            </td>
           </tr>
         </tbody>
       </table>

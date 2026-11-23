@@ -49,7 +49,11 @@ export function useAnalysis() {
           const sales30 = salesByProduct[product.id] || 0
           return { product, stock, sales30, ...calculateRecommendation({ sales30, stock }) }
         })
-        .sort((a, b) => STATUS_ORDER[a.status] - STATUS_ORDER[b.status] || (a.stockDays ?? 0) - (b.stockDays ?? 0))
+        .sort(
+          (a, b) =>
+            STATUS_ORDER[a.status] - STATUS_ORDER[b.status] ||
+            (a.stockDays ?? 0) - (b.stockDays ?? 0)
+        )
     } catch (e) {
       error.value = errorMessage(e)
     } finally {

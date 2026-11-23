@@ -21,7 +21,9 @@ function goTo(page) {
     <div v-if="totalPages > 1" class="buttons">
       <button class="btn btn-small" :disabled="page === 0" @click="goTo(page - 1)">← Назад</button>
       <span>{{ page + 1 }} / {{ totalPages }}</span>
-      <button class="btn btn-small" :disabled="page >= totalPages - 1" @click="goTo(page + 1)">Вперёд →</button>
+      <button class="btn btn-small" :disabled="page >= totalPages - 1" @click="goTo(page + 1)">
+        Вперёд →
+      </button>
     </div>
   </div>
 </template>

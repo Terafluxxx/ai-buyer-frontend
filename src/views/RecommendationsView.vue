@@ -37,7 +37,9 @@ onMounted(load)
       <select v-model="filter">
         <option value="PURCHASE">Нужна закупка</option>
         <option value="ALL">Все товары</option>
-        <option v-for="(label, status) in STATUSES" :key="status" :value="status">{{ label }}</option>
+        <option v-for="(label, status) in STATUSES" :key="status" :value="status">
+          {{ label }}
+        </option>
       </select>
       <button class="btn" :disabled="loading" @click="load">Обновить</button>
     </div>
@@ -78,7 +80,9 @@ onMounted(load)
               <td class="num">{{ formatNumber(row.stockDays) }}</td>
               <td class="num">{{ formatNumber(row.reorderPoint) }}</td>
               <td class="num">{{ formatNumber(row.targetStock) }}</td>
-              <td class="num"><strong>{{ row.recommendedQuantity }}</strong></td>
+              <td class="num">
+                <strong>{{ row.recommendedQuantity }}</strong>
+              </td>
               <td>
                 <button class="btn btn-small" @click="toggle(row.product.id)">
                   {{ expanded === row.product.id ? 'Скрыть' : 'Почему?' }}
@@ -92,7 +96,9 @@ onMounted(load)
           </template>
         </tbody>
       </table>
-      <div v-if="!loading && visibleRows.length === 0" class="empty">Нет товаров в этой категории</div>
+      <div v-if="!loading && visibleRows.length === 0" class="empty">
+        Нет товаров в этой категории
+      </div>
       <div v-if="loading" class="empty">Считаем…</div>
     </div>
   </section>

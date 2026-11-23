@@ -45,13 +45,13 @@ views/  →  components/  →  api/  →  http.js  →  backend
 
 ## `src/api/` — запросы к backend
 
-| Файл | Функции | Эндпоинты |
-| --- | --- | --- |
-| `http.js` | общий экземпляр axios, перехватчики | — |
-| `auth.js` | `register`, `login`, `logout`, `getMe`, `getCurrentCompany` | `/auth/*`, `/companies/current` |
-| `products.js` | `getProducts`, `getProduct`, `createProduct`, `updateProduct`, `deleteProduct` | `/products`, `/products/{id}` |
-| `inventory.js` | `getInventoryList`, `getProductInventory`, `setProductInventory` | `/inventory`, `/products/{id}/inventory` |
-| `sales.js` | `getSales`, `getSalesSummary`, `findSale`, `saveSale` | `/sales`, `/sales/summary`, `/products/{id}/sales/{date}` |
+| Файл           | Функции                                                                        | Эндпоинты                                                 |
+| -------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------- |
+| `http.js`      | общий экземпляр axios, перехватчики                                            | —                                                         |
+| `auth.js`      | `register`, `login`, `logout`, `getMe`, `getCurrentCompany`                    | `/auth/*`, `/companies/current`                           |
+| `products.js`  | `getProducts`, `getProduct`, `createProduct`, `updateProduct`, `deleteProduct` | `/products`, `/products/{id}`                             |
+| `inventory.js` | `getInventoryList`, `getProductInventory`, `setProductInventory`               | `/inventory`, `/products/{id}/inventory`                  |
+| `sales.js`     | `getSales`, `getSalesSummary`, `findSale`, `saveSale`                          | `/sales`, `/sales/summary`, `/products/{id}/sales/{date}` |
 
 ## `src/stores/auth.js` — состояние авторизации
 
@@ -60,13 +60,13 @@ views/  →  components/  →  api/  →  http.js  →  backend
 
 ## `src/utils/` — вспомогательные функции
 
-| Файл | Что делает |
-| --- | --- |
-| `errors.js` | Превращает ошибку от backend (`SKU_ALREADY_EXISTS` и т.п.) в понятный русский текст |
-| `format.js` | Форматирует даты (`02.11.2026`) и числа (`1 234,5`) |
-| `dates.js` | Сегодняшняя дата и «N дней назад» в формате `YYYY-MM-DD` по UTC |
-| `params.js` | Убирает пустые параметры запроса — backend отвечает 400 на `?q=` |
-| `fetchAll.js` | Загружает все страницы списка подряд (нужно для аналитики и справочников) |
+| Файл                | Что делает                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| `errors.js`         | Превращает ошибку от backend (`SKU_ALREADY_EXISTS` и т.п.) в понятный русский текст               |
+| `format.js`         | Форматирует даты (`02.11.2026`) и числа (`1 234,5`)                                               |
+| `dates.js`          | Сегодняшняя дата и «N дней назад» в формате `YYYY-MM-DD` по UTC                                   |
+| `params.js`         | Убирает пустые параметры запроса — backend отвечает 400 на `?q=`                                  |
+| `fetchAll.js`       | Загружает все страницы списка подряд (нужно для аналитики и справочников)                         |
 | `recommendation.js` | Формула рекомендаций, перенесённая из backend. См. [06-recommendations.md](06-recommendations.md) |
 
 ## `src/composables/useAnalysis.js`
@@ -77,31 +77,31 @@ views/  →  components/  →  api/  →  http.js  →  backend
 
 ## `src/components/` — компоненты
 
-| Компонент | Что это | Где используется |
-| --- | --- | --- |
-| `AppSidebar.vue` | Боковое меню, имя пользователя, кнопка «Выйти» | `App.vue` |
-| `AuthCard.vue` | Рамка для страниц входа и регистрации (через слот) | Login, Register |
-| `AppPagination.vue` | Кнопки «Назад / Вперёд» и счётчик записей | Товары, Остатки, Продажи |
-| `ProductForm.vue` | Форма SKU / название / категория | создание и редактирование товара |
-| `ProductInventory.vue` | Блок остатка в карточке товара | ProductDetail |
-| `ProductSales.vue` | Блок продаж за 30 дней в карточке товара | ProductDetail |
-| `SaleForm.vue` | Форма «продажи за день» | ProductSales, SalesView |
-| `SalesTable.vue` | Таблица продаж | ProductSales, SalesView |
-| `StatusBadge.vue` | Цветная метка состояния товара | Дашборд, Рекомендации |
+| Компонент              | Что это                                            | Где используется                 |
+| ---------------------- | -------------------------------------------------- | -------------------------------- |
+| `AppSidebar.vue`       | Боковое меню, имя пользователя, кнопка «Выйти»     | `App.vue`                        |
+| `AuthCard.vue`         | Рамка для страниц входа и регистрации (через слот) | Login, Register                  |
+| `AppPagination.vue`    | Кнопки «Назад / Вперёд» и счётчик записей          | Товары, Остатки, Продажи         |
+| `ProductForm.vue`      | Форма SKU / название / категория                   | создание и редактирование товара |
+| `ProductInventory.vue` | Блок остатка в карточке товара                     | ProductDetail                    |
+| `ProductSales.vue`     | Блок продаж за 30 дней в карточке товара           | ProductDetail                    |
+| `SaleForm.vue`         | Форма «продажи за день»                            | ProductSales, SalesView          |
+| `SalesTable.vue`       | Таблица продаж                                     | ProductSales, SalesView          |
+| `StatusBadge.vue`      | Цветная метка состояния товара                     | Дашборд, Рекомендации            |
 
 ## `src/views/` — страницы
 
-| Страница | Адрес |
-| --- | --- |
-| `LoginView.vue` | `/login` |
-| `RegisterView.vue` | `/register` |
-| `DashboardView.vue` | `/dashboard` (главная) |
-| `RecommendationsView.vue` | `/recommendations` |
-| `ProductsView.vue` | `/products` |
-| `ProductDetailView.vue` | `/products/:id` |
-| `InventoryView.vue` | `/inventory` |
-| `SalesView.vue` | `/sales` |
-| `ProfileView.vue` | `/profile` |
+| Страница                  | Адрес                  |
+| ------------------------- | ---------------------- |
+| `LoginView.vue`           | `/login`               |
+| `RegisterView.vue`        | `/register`            |
+| `DashboardView.vue`       | `/dashboard` (главная) |
+| `RecommendationsView.vue` | `/recommendations`     |
+| `ProductsView.vue`        | `/products`            |
+| `ProductDetailView.vue`   | `/products/:id`        |
+| `InventoryView.vue`       | `/inventory`           |
+| `SalesView.vue`           | `/sales`               |
+| `ProfileView.vue`         | `/profile`             |
 
 Подробно о каждой — в [05-pages.md](05-pages.md).
 

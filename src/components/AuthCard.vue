@@ -1,8 +1,8 @@
 <script setup>
 // Общая обёртка для страниц входа и регистрации
 defineProps({
-  title: String,
-  subtitle: String,
+  title: { type: String, required: true },
+  subtitle: { type: String, required: true },
 })
 </script>
 
