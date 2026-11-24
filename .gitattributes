@@ -1,0 +1,15 @@
+# Автоматическое определение текстовых файлов
+* text=auto
+
+# Для исходников и конфигураций всегда использовать LF
+*.js text eol=lf
+*.vue text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Git Hooks также используют LF
+.husky/** text eol=lf
